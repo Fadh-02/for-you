@@ -5,7 +5,7 @@
     --card-bg: #ffffff;
 }
 
-/* 1. Tambah sedikit warna pada background supaya kotak lutsinar nampak lebih kontra */
+/* 1. Background Settings */
 body {
     margin: 0;
     padding: 0;
@@ -13,40 +13,28 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #fce4ec; /* Warna asas */
-    /* Background pattern hati yang lebih jelas */
+    background-color: #fce4ec;
     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="80">❤️</text></svg>');
-    background-size: 80px 80px;
+    background-size: 80px 80px; /* Saiz laptop */
     font-family: 'Quicksand', sans-serif;
     color: var(--text-color);
     overflow: hidden;
 }
 
-@media (max-width: 600px) {
-    body {
-        /* Kecilkan saiz hati supaya tak nampak serabut kat phone */
-        background-size: 40px 40px; 
-    }
-
-    .container {
-        /* Beri ruang sikit kat tepi skrin phone */
-        width: 85%; 
-        padding: 30px 20px;
-        /* Turunkan sikit font saiz h1 kat phone */
-        h1 {
-            font-size: 1.8rem;
-        }
-    }
-}
-
-/* 2. Ini bahagian 'Glass' (Lutsinar) */
+/* 2. Glassmorphism Container (Default/Laptop) */
 .container {
-    max-width: 350px; /* Hadkan lebar maksimum */
-    margin: 20px;     /* Pastikan ada jarak dari tepi skrin */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    min-height: 250px; /* Beri ketinggian minimum supaya nampak seimbang */
+    background-color: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    padding: 50px 30px;
+    border-radius: 40px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+    text-align: center;
+    width: 85%;
+    max-width: 380px;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    z-index: 10;
+    transition: all 0.3s ease;
 }
 
 .page {
@@ -65,7 +53,7 @@ p {
     margin-bottom: 20px;
 }
 
-/* Gaya Input Puzzle */
+/* Input & Buttons */
 .input-style {
     width: 80%;
     padding: 12px;
@@ -76,10 +64,6 @@ p {
     font-family: 'Quicksand', sans-serif;
     font-size: 1rem;
     outline: none;
-}
-
-.input-style:focus {
-    border-color: var(--dark-pink);
 }
 
 .btn-group {
@@ -106,39 +90,9 @@ p {
     background-color: #e91e63;
 }
 
-.btn-no {
-    background-color: #90a4ae;
-}
+.btn-no { background-color: #90a4ae; }
 
-/* Skrin Shutdown */
-.shutdown-screen {
-    background-color: #000;
-    color: #fff;
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 9999;
-    text-align: center;
-}
-
-/* Animasi */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-@keyframes slideUp {
-    from { opacity: 0; transform: translateY(50px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* Tambahan untuk Modal WhatsApp */
+/* Modal Settings */
 .modal {
     position: fixed;
     z-index: 1000;
@@ -161,7 +115,45 @@ p {
     border: 2px solid var(--primary-pink);
 }
 
-/* Memastikan Ko-fi nampak kemas */
-#kofi-container {
-    margin: 10px 0;
+/* Animations */
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+/* =============================================
+   RESPONSIVE DESIGN (KHAS UNTUK PHONE) 
+   =============================================
+*/
+@media (max-width: 600px) {
+    body {
+        background-size: 40px 40px; /* Hati jadi kecil & halus */
+    }
+
+    .container {
+        width: 85%;
+        max-width: 310px;
+        padding: 35px 20px;
+        border-radius: 30px;
+    }
+
+    h1 {
+        font-size: 1.8rem; /* Font tak terlalu gergasi */
+    }
+
+    p {
+        font-size: 0.9rem;
+    }
+
+    .btn {
+        width: 100%; /* Butang memanjang penuh supaya senang tekan */
+        max-width: 220px;
+        padding: 12px;
+    }
+
+    .btn-group {
+        flex-direction: column; /* Susun butang atas-bawah */
+        gap: 10px;
+    }
+
+    .input-style {
+        width: 90%;
+    }
 }
