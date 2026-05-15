@@ -22,8 +22,16 @@ function handleNoReady() {
     // 1. Tukar warna background body kepada hitam dan buang gambar hati
     document.body.style.backgroundColor = "black";
     document.body.style.backgroundImage = "none"; 
+    
+    // 2. Gunakan Flexbox pada body supaya kandungan duduk tengah (Center)
+    document.body.style.display = "flex";
+    document.body.style.flexDirection = "column";
+    document.body.style.justifyContent = "center";
+    document.body.style.alignItems = "center";
+    document.body.style.height = "100vh";
+    document.body.style.margin = "0";
 
-    // 2. Masukkan kandungan baru
+    // 3. Masukkan kandungan baru
     document.body.innerHTML = `
         <div class="shutdown-screen">
             <h1 style="font-family: sans-serif; font-size: 1.5rem; padding: 20px; color: white;">
