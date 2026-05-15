@@ -19,16 +19,22 @@ function nextPage(pageNumber) {
 
 // --- 2. Logik Shutdown (Jika tekan No pada soalan Ready) ---
 function handleNoReady() {
+    // 1. Tukar warna background body kepada hitam dan buang gambar hati
+    document.body.style.backgroundColor = "black";
+    document.body.style.backgroundImage = "none"; 
+
+    // 2. Masukkan kandungan baru
     document.body.innerHTML = `
         <div class="shutdown-screen">
-            <h1 style="font-family: sans-serif; font-size: 1.5rem; padding: 20px;">
+            <h1 style="font-family: sans-serif; font-size: 1.5rem; padding: 20px; color: white;">
                 Ahhh.... You don't want to know 😔
             </h1>
-            <button class="btn" style="cursor: not-allowed; background: #555;">Bye-bye</button>
-            <p style="margin-top: 20px; font-size: 0.8rem; color: #444;">(Refresh to start over)</p>
+            <button class="btn" style="cursor: not-allowed; background: #555; color: white; border: none;">Bye-bye</button>
+            <p style="margin-top: 20px; font-size: 0.8rem; color: #888;"></p>
         </div>
     `;
-    // Bekukan skrin supaya tiada apa-apa boleh ditekan
+    
+    // Bekukan skrin
     document.body.style.pointerEvents = "none";
 }
 
