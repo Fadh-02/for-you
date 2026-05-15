@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For You ❤️</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+
+    <div id="main-container" class="container">
+        <div id="page1" class="page">
+            <h1>Hi, my love</h1>
+            <button class="btn" onclick="nextPage(2)">Hi 💕</button>
+        </div>
+
+        <div id="page2" class="page" style="display: none;">
+            <p>I want to tell you something... 🫣🫣</p>
+            <h1>Are you ready? 🥳🥳</h1>
+            <div class="btn-group">
+                <button class="btn" onclick="nextPage(3)">Yes</button>
+                <button class="btn btn-no" onclick="handleNoReady()">No</button>
+            </div>
+        </div>
+
+        <div id="page3" class="page" style="display: none;">
+            <p>Selesaikan puzzle ni dulu! 🧩</p>
+            <h1 id="jumbled-word" style="letter-spacing: 10px;">R-E-V-O-E-F-M-E-D-N-A-U-O-Y-E</h1>
+            <p style="font-size: 0.9rem;">(Susun huruf di atas menjadi perkataan)</p>
+            <input type="text" id="puzzle-answer" placeholder="Jawapan anda..." class="input-style">
+            <div class="btn-group">
+                <button class="btn" onclick="checkPuzzle()">Submit</button>
+            </div>
+        </div>
+
+        <div id="page4" class="page" style="display: none;">
+            <p>I've been thinking about this for a long time...</p>
+            <h1>Will you be my complement in this world and the hereafter? 💍</h1>
+            <div class="btn-group">
+                <button class="btn" onclick="celebrate()">Yesss 😘😘</button>
+                <button id="run-away-btn" class="btn btn-no">No</button>
+            </div>
+        </div>
+
+        <div id="page5" class="page" style="display: none;">
+            <h1>Yay! I Love You! ❤️</h1>
+            <p>Moga hubungan kita diredhai dunia & akhirat.</p>
+
+            <div style="margin-top: 30px; border-top: 1px solid #fce4ec; padding-top: 20px;">
+                <p style="font-size: 0.7rem; color: #90a4ae;">Dibuat dengan ikhlas melalui "For you💕"</p>
+                
+                <div id="kofi-container" style="display: flex; justify-content: center; transform: scale(0.85);">
+                    <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script>
+                    <script type='text/javascript'>
+                        kofiwidget2.init('Support Me', '#f06292', 'G2G01JTYVI');
+                        kofiwidget2.draw();
+                    </script>
+                </div>
+
+                <a href="https://forms.gle/3TagbyVbVcoQMPmt9" target="_blank" style="display: block; margin-top: 15px; color: #f06292; text-decoration: none; font-size: 0.8rem; border: 1px solid #fce4ec; padding: 8px; border-radius: 10px;">
+                    ✍️ Komen & Cadangan
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div id="waModal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <h3 style="font-family: 'Dancing Script', cursive; color: #f06292;">Share with your partner! 💖</h3>
+            <p style="font-size: 0.8rem;">Masukkan nombor telefon pasangan untuk hantar jawapan ini.</p>
+            <input type="text" id="waNumber" placeholder="No. Tel (cth: 60123456789)" class="input-style" style="width: 90%;">
+            <textarea id="waCustomMessage" class="input-style" style="width: 90%; height: 60px; font-size: 0.8rem;">Jawapan saya YESSS!!! I LOVE YOU TOO! 💖😘</textarea>
+            <div class="btn-group">
+                <button class="btn" onclick="processWhatsApp()" style="background-color: #25D366;">Hantar WhatsApp</button>
+                <button class="btn btn-no" onclick="closeModal()">Nanti Dulu</button>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
